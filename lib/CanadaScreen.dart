@@ -13,9 +13,7 @@ class _CanadaState extends State<Canada> {
     FF(image: "https://cdn.pixabay.com/photo/2017/09/01/13/56/university-2704306_1280.jpg", Text: "Colleges", text: "/CanadaColleges"),
     FF(image: "https://media.istockphoto.com/id/1278630367/photo/grow-green-trees-on-money-in-energy-saving-light-bulbs-including-graduation-hats-with-ideas.webp?b=1&s=612x612&w=0&k=20&c=UTp8mUy55MyDTnvU31XndWI2l2Yjppz1QlY82EvOEjY=", Text: "Scholarships", text: "/CanadaScholarships"),
     FF(image: "https://cdn.pixabay.com/photo/2016/01/16/14/56/buffer-1143485_640.jpg", Text: "Documents Required", text: "/CanadaDocuments"),
-    FF(image: "https://media.istockphoto.com/id/675281706/photo/speaking-on-different-lenguages.webp?b=1&s=612x612&w=0&k=20&c=hzGrK9n_ac7b4gFV19iTGpTKoqkoREryGgBLDn5al6M=", Text: "Languages to be Known", text: "/CanadaLanguages"),
-    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/CanadaExams"),
-    FF(image: "https://cdn.pixabay.com/photo/2014/02/13/07/28/security-265130_640.jpg", Text: "How safe is the country for the students ?", text: "/CanadaSafty"),];
+    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/CanadaExams"),];
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -140,42 +138,6 @@ class _CanadaExamsState extends State<CanadaExams> {
   }
 }
 
-
-class CanadaLanguages extends StatefulWidget {
-  const CanadaLanguages({super.key});
-
-  @override
-  State<CanadaLanguages> createState() => _CanadaLanguagesState();
-}
-
-class _CanadaLanguagesState extends State<CanadaLanguages> {
-  @override
-  Widget build(BuildContext context) {
-    double hi = MediaQuery.of(context).size.height;
-    double wi = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: Colors.lightGreen,
-    );
-  }
-}
-
-class CanadaSafty extends StatefulWidget {
-  const CanadaSafty({super.key});
-
-  @override
-  State<CanadaSafty> createState() => _CanadaSaftyState();
-}
-
-class _CanadaSaftyState extends State<CanadaSafty> {
-  @override
-  Widget build(BuildContext context) {
-    double hi = MediaQuery.of(context).size.height;
-    double wi = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: Colors.deepOrangeAccent,
-    );
-  }
-}
 
 class CanadaScholarships extends StatefulWidget {
   const CanadaScholarships({super.key});

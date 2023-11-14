@@ -396,59 +396,6 @@ class _UKExamsState extends State<UKExams> {
   }
 }
 
-class UKLanguages extends StatefulWidget {
-  const UKLanguages({super.key});
-
-  @override
-  State<UKLanguages> createState() => _UKLanguagesState();
-}
-
-class _UKLanguagesState extends State<UKLanguages> {
-  @override
-  Widget build(BuildContext context) {
-    double hi = MediaQuery.of(context).size.height;
-    double wi = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.cyan,
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10,
-              left: 10,
-              right: 10,
-              bottom: 10),
-              child: Container(
-                height: hi,
-                width: wi,
-                child: Column(
-                  children: [
-                    AnimatedTextKit(animatedTexts: [
-                      TyperAnimatedText("English",
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                        color: Colors.purple,
-                      ),
-                      textAlign: TextAlign.center,
-                      speed: Duration(milliseconds: 500))
-                    ],),
-                    Text("English is spoken by over 95 per cent of the population in the UK, so you'll be surrounded by the language here, learning faster and using your language skills in real-life settings. When you learn English in the UK, you will learn about all the different accents, phrases and vocabulary.English Proficiency Tests Required to Study in UK for Indian Students. The UK has excellent standards for the English language. If you wish to study there, you need good English proficiency to understand and respond to advanced-level courses.",style: TextStyle(fontSize: 25,),
-                    textAlign: TextAlign.justify,),
-                  ],
-                )
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 
 class UKScholarships extends StatefulWidget {
   const UKScholarships({super.key});

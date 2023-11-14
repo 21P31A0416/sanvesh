@@ -12,9 +12,7 @@ class _DenmarkState extends State<Denmark> {
     FF(image: "https://cdn.pixabay.com/photo/2017/09/01/13/56/university-2704306_1280.jpg", Text: "Colleges", text: "/DenmarkColleges"),
     FF(image: "https://media.istockphoto.com/id/1278630367/photo/grow-green-trees-on-money-in-energy-saving-light-bulbs-including-graduation-hats-with-ideas.webp?b=1&s=612x612&w=0&k=20&c=UTp8mUy55MyDTnvU31XndWI2l2Yjppz1QlY82EvOEjY=", Text: "Scholarships", text: "/DenmarkScholarships"),
     FF(image: "https://cdn.pixabay.com/photo/2016/01/16/14/56/buffer-1143485_640.jpg", Text: "Documents Required", text: "/DenmarkDocuments"),
-    FF(image: "https://media.istockphoto.com/id/675281706/photo/speaking-on-different-lenguages.webp?b=1&s=612x612&w=0&k=20&c=hzGrK9n_ac7b4gFV19iTGpTKoqkoREryGgBLDn5al6M=", Text: "Languages to be Known", text: "/DenmarkLanguages"),
-    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/DenmarkExams"),
-    FF(image: "https://cdn.pixabay.com/photo/2014/02/13/07/28/security-265130_640.jpg", Text: "How safe is the country for the students ?", text: "/DenmarkSafty"),];
+    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/DenmarkExams"),];
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -136,46 +134,6 @@ class _DenmarkExamsState extends State<DenmarkExams> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
-      ),
-    );
-  }
-}
-
-class DenmarkLanguages extends StatefulWidget {
-  const DenmarkLanguages({super.key});
-
-  @override
-  State<DenmarkLanguages> createState() => _DenmarkLanguagesState();
-}
-
-class _DenmarkLanguagesState extends State<DenmarkLanguages> {
-  @override
-  Widget build(BuildContext context) {
-    double wi = MediaQuery.of(context).size.width;
-    double hi = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange,
-      ),
-    );
-  }
-}
-
-class DenmarkSafty extends StatefulWidget {
-  const DenmarkSafty({super.key});
-
-  @override
-  State<DenmarkSafty> createState() => _DenmarkSaftyState();
-}
-
-class _DenmarkSaftyState extends State<DenmarkSafty> {
-  @override
-  Widget build(BuildContext context) {
-    double wi = MediaQuery.of(context).size.width;
-    double hi = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.amber,
       ),
     );
   }

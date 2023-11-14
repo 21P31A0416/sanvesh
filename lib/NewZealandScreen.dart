@@ -13,9 +13,7 @@ class _NewZealandState extends State<NewZealand> {
     FF(image: "https://cdn.pixabay.com/photo/2017/09/01/13/56/university-2704306_1280.jpg", Text: "Colleges", text: "/NewzealandColleges"),
     FF(image: "https://media.istockphoto.com/id/1278630367/photo/grow-green-trees-on-money-in-energy-saving-light-bulbs-including-graduation-hats-with-ideas.webp?b=1&s=612x612&w=0&k=20&c=UTp8mUy55MyDTnvU31XndWI2l2Yjppz1QlY82EvOEjY=", Text: "Scholarships",text: "/NewzealandScholarships"),
     FF(image: "https://cdn.pixabay.com/photo/2016/01/16/14/56/buffer-1143485_640.jpg", Text: "Documents Required", text: "/NewzealandDocuments"),
-    FF(image: "https://media.istockphoto.com/id/675281706/photo/speaking-on-different-lenguages.webp?b=1&s=612x612&w=0&k=20&c=hzGrK9n_ac7b4gFV19iTGpTKoqkoREryGgBLDn5al6M=", Text: "Languages to be Known", text: "/NewzealandLanguages"),
-    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/NewzealandExams"),
-    FF(image: "https://cdn.pixabay.com/photo/2014/02/13/07/28/security-265130_640.jpg", Text: "How safe is the country for the students ?", text: "/NewzealandSafty"),];
+    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/NewzealandExams"),];
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -140,46 +138,6 @@ class _NewzealandExamsState extends State<NewzealandExams> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-      ),
-    );
-  }
-}
-
-class NewzealandLanguages extends StatefulWidget {
-  const NewzealandLanguages({super.key});
-
-  @override
-  State<NewzealandLanguages> createState() => _NewzealandLanguagesState();
-}
-
-class _NewzealandLanguagesState extends State<NewzealandLanguages> {
-  @override
-  Widget build(BuildContext context) {
-    double wi = MediaQuery.of(context).size.width;
-    double hi = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-      ),
-    );
-  }
-}
-
-class NewzealandSafty extends StatefulWidget {
-  const NewzealandSafty({super.key});
-
-  @override
-  State<NewzealandSafty> createState() => _NewzealandSaftyState();
-}
-
-class _NewzealandSaftyState extends State<NewzealandSafty> {
-  @override
-  Widget build(BuildContext context) {
-    double wi = MediaQuery.of(context).size.width;
-    double hi = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.teal,
       ),
     );
   }
