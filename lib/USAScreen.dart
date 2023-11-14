@@ -18,8 +18,6 @@ class _USAState extends State<USA> {
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
     double wi = MediaQuery.of(context).size.width;
-
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green.shade900,
