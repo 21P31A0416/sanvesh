@@ -195,25 +195,29 @@ class _HomeScreenState extends State<HomeScreen> {
           Container(
             height: hi/20,
           ),
-          CarouselSlider(items: l.map((i){
-            return Container(
-              height: hi/4,
-              width: wi,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: NetworkImage(i),
-                    fit: BoxFit.fill),
-              ),
-            );
-          }).toList(),
-              options: CarouselOptions(
+          Padding(
+            padding: const EdgeInsets.only(left: 20,
+            right: 20),
+            child: CarouselSlider(items: l.map((i){
+              return Container(
                 height: hi/4,
-                viewportFraction: 2,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                enlargeCenterPage: true,
+                width: wi,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: NetworkImage(i),
+                      fit: BoxFit.fill),
+                ),
+              );
+            }).toList(),
+                options: CarouselOptions(
+                  height: hi/4,
+                  viewportFraction: 2,
+                  autoPlay: true,
+                  autoPlayInterval: Duration(seconds: 3),
+                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  enlargeCenterPage: true,
 
-              )
+                )
+            ),
           ),
           Container(
             height: hi/20,

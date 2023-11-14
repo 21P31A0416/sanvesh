@@ -325,6 +325,73 @@ class _UKExamsState extends State<UKExams> {
       appBar: AppBar(
         backgroundColor: Colors.purple,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 10,
+            right: 10,
+            top: 10),
+            child: Container(
+              height: hi/1.5,
+              width: wi,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.blue
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Text("Exams that are required to study in UK",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10,
+                    right: 10,
+                    top: 10),
+                    child: Table(
+                      border: TableBorder.all(color: Colors.black),
+                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      columnWidths: {
+                        1: FixedColumnWidth(150),
+                        2: FixedColumnWidth(150),
+                      },
+                      children: [
+                        TableRow(
+                            children: [
+                              Center(child: Text("Exam", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
+                              Center(child: Text("Course", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
+                            ]
+                        ),
+                        makerow( "GRE", "Most Master’s courses"),
+                        makerow( "GMAT", "Business"),
+                        makerow( "Biomedical Admissions Test", "Medicine, Biomedical, Biotechnology"),
+                        makerow( "UK Clinical Aptitude Test (UKCAT)", "Medicine, Health-care"),
+                        makerow( "LNAT", "Law"),
+                        makerow( "Cambridge Law Test", "Law"),
+                        makerow( "Mathematics Admissions Test (MAT)", "Math"),
+                        makerow( "Sixth Term Examination Paper (STEP)", "Math"),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  TableRow makerow( Exam, Course){
+    return TableRow(
+        children: [
+          Center(child: Text("$Exam",style: TextStyle(fontSize: 18, color: Colors.black),
+          textAlign: TextAlign.left,),),
+          Center(child: Text("$Course", style: TextStyle(fontSize: 18, color: Colors.black),
+            textAlign: TextAlign.left,),)
+        ]
     );
   }
 }
@@ -399,7 +466,67 @@ class _UKScholarshipsState extends State<UKScholarships> {
       appBar: AppBar(
         backgroundColor: Colors.black,
       ),
-
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10,
+            right: 10,
+            left: 10),
+            child: Container(
+              height: hi/1.5,
+              width: wi,
+              child:  Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Text("Scholarships",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10,
+                        right: 10,
+                        top: 10),
+                    child: Table(
+                      border: TableBorder.all(color: Colors.black),
+                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      columnWidths: {
+                        1: FixedColumnWidth(200),
+                        2: FixedColumnWidth(20),
+                      },
+                      children: [
+                        TableRow(
+                            children: [
+                              Center(child: Text("S.no", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
+                              Center(child: Text("Scholarships", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
+                            ]
+                        ),
+                        makerow( "1", "Chevening Scholarships"),
+                        makerow( "2", "Commonwealth Masters Scholarships"),
+                        makerow( "3", "Commonwealth Fellowship Plan"),
+                        makerow( "4", "Dr Manmohan Singh Scholarships"),
+                        makerow( "5", "The Global Study Awards"),
+                        makerow( "6", "Goa Education Trust Scholarships"),
+                        makerow( "7", "Charles Wallace India Trust Scholarships"),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow(Num, Scholarships){
+    return TableRow(
+        children: [
+          Center(child: Text("$Num",style: TextStyle(fontSize: 18, color: Colors.black),
+            textAlign: TextAlign.left,),),
+          Center(child: Text("$Scholarships", style: TextStyle(fontSize: 18, color: Colors.black),
+            textAlign: TextAlign.left,),)
+        ]
     );
   }
 }

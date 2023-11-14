@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Germany extends StatefulWidget {
   const Germany({super.key});
@@ -92,6 +93,13 @@ class GermanyColleges extends StatefulWidget {
 }
 
 class _GermanyCollegesState extends State<GermanyColleges> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -100,6 +108,118 @@ class _GermanyCollegesState extends State<GermanyColleges> {
       appBar: AppBar(
         backgroundColor: Colors.black,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,
+                  horizontal: 20),
+              child: GestureDetector(
+                onTap: _flip,
+                child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                  if(val >= (pi/2)){
+                    isBack = false;
+                  }else{
+                    isBack = true;
+                  }
+                  return(
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(val),
+                        child: Container(
+                            height: hi/1.3,
+                            width: wi,
+                            child: isBack?
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  image:  DecorationImage(
+                                      image: AssetImage("assets/Colleges.png"),
+                                      fit: BoxFit.fill
+                                  )
+                              ),
+                            )
+                                :Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.identity()..rotateY(pi),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Column(
+                                        children: [
+                                          Container(
+                                            height: hi/10,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                "Top Colleges in Germany",
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(top: 10,
+                                            right: 10,),
+                                            child: Table(
+                                              border: TableBorder.all(color: Colors.black),
+                                              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                              columnWidths: {
+                                                0: FixedColumnWidth(100),
+                                                1: FixedColumnWidth(100),
+                                                2: FixedColumnWidth(155),
+                                              },
+                                              children: [
+                                                TableRow(
+                                                    children: [
+                                                      Center(child: Text("QS World University Rankings", style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                      Center(child: Text("Times Higher Education World University Ranking", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                      Center(child: Text("University", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
+                                                    ]
+                                                ),
+                                                makerow("49", "30", "Technical University of Munich"),
+                                                makerow("59", "33", "Ludwig Maximilians University Munich"),
+                                                makerow("65", "43", "Heidelberg University"),
+                                                makerow("118", "91", "Free University of Berlin"),
+                                                makerow("131", "86", "Humboldt University of Berlin"),
+                                                makerow("141", "189", "KIT, Karlsruhe Institute of Technology"),
+                                                makerow("147", "99", "RWTH Aachen University"),
+                                                makerow("158", "156", "Technical University of Berlin (TU Berlin)"),
+                                                makerow("169", "86", "Eberhard Karls Universität Tübingen"),
+                                                makerow("189", "113", "Albert Ludwigs University of Freiburg"),
+                                              ],
+                                            ),
+                                          )
+                                        ]
+                                    ),
+                                  )
+                              ),
+                            )
+                        ),
+                      )
+                  );
+                }),
+              )
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow(british, global, university){
+    return TableRow(
+        children: [
+          Center(child: Text("$british", style: TextStyle(fontSize: 18, color: Colors.black),),),
+          Center(child: Text("$global",style: TextStyle(fontSize: 18, color: Colors.black),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 18, color: Colors.black),),)
+        ]
     );
   }
 }
@@ -120,6 +240,77 @@ class _GermanyDocumentsState extends State<GermanyDocuments> {
       appBar: AppBar(
         backgroundColor: Colors.yellow,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10,
+                right: 10,
+                left: 10,
+                bottom: 10),
+            child: Container(
+              height: hi/1.5,
+              width: wi,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
+                  color: Colors.tealAccent),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Text("Document that are required", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10,
+                          left: 10,
+                          top: 10,
+                      bottom: 10),
+                      child: Table(
+                        border: TableBorder.all(color: Colors.black),
+                        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                        columnWidths: {
+                          0: FixedColumnWidth(50),
+                          1: FixedColumnWidth(300),
+                        },
+                        children: [
+                          TableRow(
+                              children: [
+                                Center(child: Text("S.no", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                Center(child: Text("Required Documents", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
+                              ]
+                          ),
+                          makerow( "1", "Valid passport"),
+                          makerow( "2", "Copy of your passport’s information page (A4 size copy)"),
+                          makerow( "3", "Application form "),
+                          makerow( "4", "A declaration stating the information provided is true and complete information"),
+                          makerow( "5", "APS Certificate: Mandatory component November 2022 onwards"),
+                          makerow( "6", "Cover Letter explaining the reason for your visa application. You may be required to submit a German translation of this document."),
+                          makerow( "7", "Letter of Admission from a German University"),
+                          makerow( "8", "University Certificates and transcripts - Degree certificates and mark sheets"),
+                          makerow( "9", "Proof of Language Proficiency (German language test scores). Applicants for PhD studies and Erasmus Mundus Scholarship holders are exempt from this rule"),
+                          makerow( "10", "Proof of funds"),
+                          makerow("11", "3 passport pictures according to biometric specifications, not older than 6 months"),
+                          makerow( "12", "Demand Draft for the Student Visa Fee"),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow( Num, Documents){
+    return TableRow(
+        children: [
+          Center(child: Text("$Num",style: TextStyle(fontSize: 18, color: Colors.black),),),
+          Center(child: Text("$Documents", style: TextStyle(fontSize: 18, color: Colors.black),
+            textAlign: TextAlign.left,),)
+        ]
     );
   }
 }
@@ -200,6 +391,7 @@ class _GermanyScholarshipsState extends State<GermanyScholarships> {
       appBar: AppBar(
         backgroundColor: Colors.limeAccent,
       ),
+
     );
   }
 }
