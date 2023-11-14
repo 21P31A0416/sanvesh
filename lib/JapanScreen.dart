@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 class Japan extends StatefulWidget {
   const Japan({super.key});
 
@@ -34,31 +35,52 @@ class _JapanState extends State<Japan> {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15,
           vertical: 15),
-          child:  Container(
-            height: hi/4,
-            width: wi,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.amber,
-                image: DecorationImage(
-                    image: NetworkImage(l[i].image),
-                    fit: BoxFit.fill
-                )
-            ),
-            child: Center(
-              child: ListTile(
-                title: TextButton(
-                  onPressed: (){
-                    Navigator.pushNamed(context, l[i].text);
-                  },
-                  child: Text(l[i].Text,
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
+          child:  InkWell(
+            onTap: (){
+              Navigator.push(context,
+              PageRouteBuilder(
+                transitionsBuilder: (context, animation, animationTime, child){
+                  return ScaleTransition(scale: animation,child: child,
+                  alignment: Alignment.center,);
+                },
+                pageBuilder: (context, animation, animationTime){
+                  if (l[i].text == "/JapanCollege") {
+                    return JapanColleges();
+                  } else if (l[i].text == "/JapanDocuments") {
+                    return JapanDocuments();
+                  } else if (l[i].text == "/JapanScholarships") {
+                    return JapanScholarships();
+                  } else if (l[i].text == "/JapanExams") {
+                    return JapanExam();
+                  }
+                  return Container();
+                }
+              ),
+              );
+            },
+            child: Container(
+              height: hi/4,
+              width: wi,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.amber,
+                  image: DecorationImage(
+                      image: NetworkImage(l[i].image),
+                      fit: BoxFit.fill
+                  )
+              ),
+              child: Center(
+                child: ListTile(
+                    title: Center(
+                      child: Text(l[i].Text,
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                        ),
+                      ),
                     ),
-                  ),
-                )
+                ),
               ),
             ),
           ),
@@ -87,6 +109,13 @@ class JapanColleges extends StatefulWidget {
 }
 
 class _JapanCollegesState extends State<JapanColleges> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -95,6 +124,113 @@ class _JapanCollegesState extends State<JapanColleges> {
       appBar: AppBar(
         backgroundColor: Colors.green,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,
+                  horizontal: 20),
+              child: GestureDetector(
+                onTap: _flip,
+                child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                  if(val >= (pi/2)){
+                    isBack = false;
+                  }else{
+                    isBack = true;
+                  }
+                  return(
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(val),
+                        child: Container(
+                            height: hi/1.3,
+                            width: wi,
+                            child: isBack?
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  image:  DecorationImage(
+                                      image: AssetImage("assets/Colleges.png"),
+                                      fit: BoxFit.fill
+                                  )
+                              ),
+                            )
+                                :Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.identity()..rotateY(pi),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Colors.black
+                                  ),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Column(
+                                        children: [
+                                          Container(
+                                            height: hi/10,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                "Top Colleges in London",
+                                                style: TextStyle(
+                                                    fontSize: 30,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Table(
+                                            border: TableBorder.all(color: Colors.white),
+                                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                            columnWidths: {
+                                              0: FixedColumnWidth(150),
+                                              1: FixedColumnWidth(200),
+                                            },
+                                            children: [
+                                              TableRow(
+                                                  children: [
+                                                    Center(child: Text("Global Rank", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
+                                                    Center(child: Text("University", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                  ]
+                                              ),
+                                              makerow("28", "The University of Tokyo",),
+                                              makerow("46", "Kyoto University",),
+                                              makerow("80", "Osaka University",),
+                                              makerow("91", "Tokyo Institute of Technology (Tokyo Tech)",),
+                                              makerow("113", "Tohoku University",),
+                                              makerow("164", "Kyushu University",),
+                                              makerow("176", "Kyushu University",),
+                                              makerow("196", "Hokkaido University",),
+                                              makerow("214", "Waseda University",),
+                                              makerow("355", "Kyushu University")
+                                            ],
+                                          )
+                                        ]
+                                    ),
+                                  )
+                              ),
+                            )
+
+                        ),
+                      )
+                  );
+                }),
+              )
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow(british, university){
+    return TableRow(
+        children: [
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+        ]
     );
   }
 }
