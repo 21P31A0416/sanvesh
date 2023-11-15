@@ -332,8 +332,8 @@ class _JapanDocumentsState extends State<JapanDocuments> {
                                                     Center(child: Text("Documents", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
                                                   ]
                                               ),
-                                              makerow("1", "•	Completed student visa application form",),
-                                              makerow("2", "•	Valid passport.",),
+                                              makerow("1", "Completed student visa application form",),
+                                              makerow("2", "Valid passport",),
                                               makerow("3", "Passport-size photos",),
                                               makerow("4", "Letter of sponsorship.",),
                                               makerow("5", "Letter of admission from an educational institution in Japan with details of the study program the student will be studying and its duration.",),

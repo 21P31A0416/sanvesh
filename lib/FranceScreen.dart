@@ -35,31 +35,51 @@ class _FranceState extends State<France> {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15,
                   vertical: 15),
-              child: Container(
-                height: hi/4,
-                width: wi,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.amber,
-                    image: DecorationImage(
-                        image: NetworkImage(l[i].image),
-                        fit: BoxFit.fill
-                    )
-                ),
-                child: Center(
-                  child: ListTile(
-                    title:TextButton(
-                      onPressed: (){
-                        Navigator.pushNamed(context, l[i].text);
+              child: InkWell(onTap: (){
+                Navigator.push(context,
+                  PageRouteBuilder(
+                      transitionsBuilder: (context, animation, animationTime, child){
+                        return ScaleTransition(scale: animation,child: child,
+                          alignment: Alignment.center,);
                       },
-                      child:  Text(l[i].Text,
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
-                        ),
+                      pageBuilder: (context, animation, animationTime){
+                        if (l[i].text == "/FranceColleges") {
+                          return FranceColleges();
+                        } else if (l[i].text == "/FranceDocuments") {
+                          return FranceDocuments();
+                        } else if (l[i].text == "/FranceScholarships") {
+                          return FranceScholarships();
+                        } else if (l[i].text == "/FranceExams") {
+                          return FranceExams();
+                        }
+                        return Container();
+                      }
+                  ),
+                );
+              },
+                child: Container(
+                  height: hi/4,
+                  width: wi,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.amber,
+                      image: DecorationImage(
+                          image: NetworkImage(l[i].image),
+                          fit: BoxFit.fill
+                      )
+                  ),
+                  child: Center(
+                    child: ListTile(
+                      title: Center(
+                        child: Text(l[i].Text,
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white
+                            ),
+                          ),
                       ),
-                    )
+                    ),
                   ),
                 ),
               ),

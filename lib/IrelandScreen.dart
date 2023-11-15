@@ -494,35 +494,41 @@ class _irelandScholarshipsState extends State<irelandScholarships> {
                                   alignment: Alignment.center,
                                   transform: Matrix4.identity()..rotateY(pi),
                                   child:Container(
-                                      child: Column(
-                                        children: [Text("Scholarships In Ireland",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
-                                          Padding(
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.vertical,
+                                        child: Column(
+                                          children: [Padding(
                                             padding: const EdgeInsets.only(top: 20),
-                                            child: Table(
-                                              border: TableBorder.all(color: Colors.black),
-                                              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                                              columnWidths: {
-                                                0: FixedColumnWidth(50),
-                                                1: FixedColumnWidth(200),
-                                              },
-                                              children: [
-                                                TableRow(
-                                                    children: [
-                                                      Center(child: Text("S.no", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
-                                                      Center(child: Text("Scholarships", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
-                                                    ]
-                                                ),
-                                                makerow( "1", "Government of Ireland (GOI) Scholarships"),
-                                                makerow( "2", "Ireland Fellows Program"),
-                                                makerow( "3", "Trinity College Dublin Scholarships"),
-                                                makerow( "4", "University College Dublin Global Excellence Graduate Scholarship"),
-                                                makerow( "5", "National College of Ireland Scholarships"),
-                                                makerow( "6", "Dublin City University International Merit Scholarships"),
-                                                makerow( "7", "Maynooth University International Scholarship"),
-                                                makerow( "8", "Cork Institute of Technology International Student Scholarships"),],
-                                            ),
+                                            child: Text("Scholarships In Ireland",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
                                           ),
-                                        ],
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 20),
+                                              child: Table(
+                                                border: TableBorder.all(color: Colors.black),
+                                                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                                columnWidths: {
+                                                  0: FixedColumnWidth(50),
+                                                  1: FixedColumnWidth(250),
+                                                },
+                                                children: [
+                                                  TableRow(
+                                                      children: [
+                                                        Center(child: Text("S.no", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                        Center(child: Text("Scholarships", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
+                                                      ]
+                                                  ),
+                                                  makerow( "1", "Government of Ireland (GOI) Scholarships"),
+                                                  makerow( "2", "Ireland Fellows Program"),
+                                                  makerow( "3", "Trinity College Dublin Scholarships"),
+                                                  makerow( "4", "University College Dublin Global Excellence Graduate Scholarship"),
+                                                  makerow( "5", "National College of Ireland Scholarships"),
+                                                  makerow( "6", "Dublin City University International Merit Scholarships"),
+                                                  makerow( "7", "Maynooth University International Scholarship"),
+                                                  makerow( "8", "Cork Institute of Technology International Student Scholarships"),],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       )
                                   )
                               )
@@ -541,8 +547,8 @@ class _irelandScholarshipsState extends State<irelandScholarships> {
   TableRow makerow( Num, Documents){
     return TableRow(
         children: [
-          Center(child: Text("$Num",style: TextStyle(fontSize: 25, color: Colors.black),),),
-          Center(child: Text("$Documents", style: TextStyle(fontSize: 25, color: Colors.black),
+          Center(child: Text("$Num",style: TextStyle(fontSize: 20, color: Colors.black),),),
+          Center(child: Text("$Documents", style: TextStyle(fontSize: 20, color: Colors.black),
             textAlign: TextAlign.left,),)
         ]
     );

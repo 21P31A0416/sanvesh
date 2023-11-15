@@ -175,7 +175,7 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
                   bottom: 10,
                   right: 10,
                   left: 10),
-              child: Text("International students who wish to study in Japan must take the EJU which is required for admission to undergraduate programs at Japanese universities. The EJU is held in June and November every year in Japan and other countries. The exam has four subjects:",
+              child: Text("",
                 textAlign: TextAlign.justify,
                 style: TextStyle(fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -227,7 +227,7 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
                                             Container(
                                               height: hi/10,
                                               child: Padding(
-                                                padding: const EdgeInsets.only(top: 10),
+                                                padding: const EdgeInsets.only(top: 20),
                                                 child: Text(
                                                   "Entrance Exams for Japan",
                                                   style: TextStyle(
@@ -249,7 +249,7 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
                                                 TableRow(
                                                     children: [
                                                       Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
-                                                      Center(child: Text("Exams", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                      Center(child: Text("Scholarshpis", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
                                                     ]
                                                 ),
                                                 makerow("1", "Japanese as a foreign language",),

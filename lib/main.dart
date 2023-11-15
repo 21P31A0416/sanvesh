@@ -154,12 +154,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
         backgroundColor: Colors.purple,
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.question_mark_outlined,
-            color: Colors.white,
-            size: 25,)
-          )
-        ],
       ),
       body: Column(
         children: [
