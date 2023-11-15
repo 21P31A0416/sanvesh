@@ -536,7 +536,7 @@ class _FranceScholarshipsState extends State<FranceScholarships> {
                                               border: TableBorder.all(color: Colors.black),
                                               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                               columnWidths: {
-                                                0: FixedColumnWidth(100),
+                                                0: FixedColumnWidth(150),
                                                 1: FixedColumnWidth(250),
                                               },
                                               children: [

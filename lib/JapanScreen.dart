@@ -174,7 +174,7 @@ class _JapanCollegesState extends State<JapanColleges> {
                                             child: Padding(
                                               padding: const EdgeInsets.only(top: 10),
                                               child: Text(
-                                                "Top Colleges in London",
+                                                "Top Colleges in Japan",
                                                 style: TextStyle(
                                                     fontSize: 30,
                                                     fontWeight: FontWeight.bold,
@@ -193,20 +193,21 @@ class _JapanCollegesState extends State<JapanColleges> {
                                             children: [
                                               TableRow(
                                                   children: [
-                                                    Center(child: Text("Global Rank", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
+                                                    Center(child: Text("QS Ranking 2024", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
                                                     Center(child: Text("University", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
                                                   ]
                                               ),
                                               makerow("28", "The University of Tokyo",),
                                               makerow("46", "Kyoto University",),
                                               makerow("80", "Osaka University",),
-                                              makerow("91", "Tokyo Institute of Technology (Tokyo Tech)",),
+                                              makerow("91", "Tokyo Institute of Technology (Tokyo Tech)	91",),
                                               makerow("113", "Tohoku University",),
                                               makerow("164", "Kyushu University",),
-                                              makerow("176", "Kyushu University",),
+                                              makerow("176", "Nagoya University",),
                                               makerow("196", "Hokkaido University",),
-                                              makerow("214", "Waseda University",),
-                                              makerow("355", "Kyushu University")
+                                              makerow("199", "Waseda University",),
+                                              makerow("214", "Kyushu University"),
+                                              makerow("355", "Nagoya University")
                                             ],
                                           )
                                         ]
@@ -243,6 +244,13 @@ class JapanDocuments extends StatefulWidget {
 }
 
 class _JapanDocumentsState extends State<JapanDocuments> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -251,6 +259,111 @@ class _JapanDocumentsState extends State<JapanDocuments> {
       appBar: AppBar(
         backgroundColor: Colors.red,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,
+                  horizontal: 20),
+              child: GestureDetector(
+                onTap: _flip,
+                child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                  if(val >= (pi/2)){
+                    isBack = false;
+                  }else{
+                    isBack = true;
+                  }
+                  return(
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(val),
+                        child: Container(
+                            height: hi/1.3,
+                            width: wi,
+                            child: isBack?
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  image:  DecorationImage(
+                                      image: AssetImage("assets/Colleges.png"),
+                                      fit: BoxFit.fill
+                                  )
+                              ),
+                            )
+                                :Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.identity()..rotateY(pi),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Colors.black
+                                  ),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Column(
+                                        children: [
+                                          Container(
+                                            height: hi/10,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                "Documents Required to study in Japan",
+                                                style: TextStyle(
+                                                    fontSize: 30,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Table(
+                                            border: TableBorder.all(color: Colors.white),
+                                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                            columnWidths: {
+                                              0: FixedColumnWidth(50),
+                                              1: FixedColumnWidth(300),
+                                            },
+                                            children: [
+                                              TableRow(
+                                                  children: [
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
+                                                    Center(child: Text("Documents", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                  ]
+                                              ),
+                                              makerow("1", "•	Completed student visa application form",),
+                                              makerow("2", "•	Valid passport.",),
+                                              makerow("3", "Passport-size photos",),
+                                              makerow("4", "Letter of sponsorship.",),
+                                              makerow("5", "Letter of admission from an educational institution in Japan with details of the study program the student will be studying and its duration.",),
+                                              makerow("6", "Proof of academic qualifications.",),
+                                              makerow("7", "Proof of having enough funds for studies.",),
+                                              makerow("8", "A letter of motivation from the student with a reason for travelling to Japan.",),
+                                            ],
+                                          )
+                                        ]
+                                    ),
+                                  )
+                              ),
+                            )
+
+                        ),
+                      )
+                  );
+                }),
+              )
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow(british, university){
+    return TableRow(
+        children: [
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+        ]
     );
   }
 }
@@ -263,6 +376,13 @@ class JapanExam extends StatefulWidget {
 }
 
 class _JapanExamState extends State<JapanExam> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -271,6 +391,121 @@ class _JapanExamState extends State<JapanExam> {
       appBar: AppBar(
         backgroundColor: Colors.amber,
       ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10,
+              bottom: 10,
+              right: 10,
+              left: 10),
+              child: Text("International students who wish to study in Japan must take the EJU which is required for admission to undergraduate programs at Japanese universities. The EJU is held in June and November every year in Japan and other countries. The exam has four subjects:",
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black),
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20,
+                    horizontal: 20),
+                child: GestureDetector(
+                  onTap: _flip,
+                  child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                    if(val >= (pi/2)){
+                      isBack = false;
+                    }else{
+                      isBack = true;
+                    }
+                    return(
+                        Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.identity()
+                            ..setEntry(3, 2, 0.001)
+                            ..rotateY(val),
+                          child: Container(
+                              height: hi/1.3,
+                              width: wi,
+                              child: isBack?
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    image:  DecorationImage(
+                                        image: AssetImage("assets/Colleges.png"),
+                                        fit: BoxFit.fill
+                                    )
+                                ),
+                              )
+                                  :Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.identity()..rotateY(pi),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: Colors.black
+                                    ),
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Column(
+                                          children: [
+                                            Container(
+                                              height: hi/10,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(top: 10),
+                                                child: Text(
+                                                  "Entrance Exams for Japan",
+                                                  style: TextStyle(
+                                                      fontSize: 30,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.white
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Table(
+                                              border: TableBorder.all(color: Colors.white),
+                                              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                              columnWidths: {
+                                                0: FixedColumnWidth(150),
+                                                1: FixedColumnWidth(200),
+                                              },
+                                              children: [
+                                                TableRow(
+                                                    children: [
+                                                      Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
+                                                      Center(child: Text("Exams", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                    ]
+                                                ),
+                                                makerow("1", "Japanese as a foreign language",),
+                                                makerow("2", "Science",),
+                                                makerow("3", "Japan and the world",),
+                                                makerow("4", "Mathematics",),
+                                              ],
+                                            )
+                                          ]
+                                      ),
+                                    )
+                                ),
+                              )
+                          ),
+                        )
+                    );
+                  }),
+                )
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  TableRow makerow(british, university){
+    return TableRow(
+        children: [
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+        ]
     );
   }
 }
@@ -284,6 +519,13 @@ class JapanScholarships extends StatefulWidget {
 }
 
 class _JapanScholarshipsState extends State<JapanScholarships> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -292,6 +534,108 @@ class _JapanScholarshipsState extends State<JapanScholarships> {
       appBar: AppBar(
         backgroundColor: Colors.cyan,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,
+                  horizontal: 20),
+              child: GestureDetector(
+                onTap: _flip,
+                child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                  if(val >= (pi/2)){
+                    isBack = false;
+                  }else{
+                    isBack = true;
+                  }
+                  return(
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(val),
+                        child: Container(
+                            height: hi/1.3,
+                            width: wi,
+                            child: isBack?
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  image:  DecorationImage(
+                                      image: AssetImage("assets/Colleges.png"),
+                                      fit: BoxFit.fill
+                                  )
+                              ),
+                            )
+                                :Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.identity()..rotateY(pi),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Colors.black
+                                  ),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Column(
+                                        children: [
+                                          Container(
+                                            height: hi/10,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(top: 10),
+                                              child: Text(
+                                                "Scholarships in Japan",
+                                                style: TextStyle(
+                                                    fontSize: 30,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Table(
+                                            border: TableBorder.all(color: Colors.white),
+                                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                            columnWidths: {
+                                              0: FixedColumnWidth(50),
+                                              1: FixedColumnWidth(300),
+                                            },
+                                            children: [
+                                              TableRow(
+                                                  children: [
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
+                                                    Center(child: Text("Scholarships", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                  ]
+                                              ),
+                                              makerow("1", "Asian Development Bank-Japan Scholarship Programme.",),
+                                              makerow("2", "Scholarships provided by JASSO.",),
+                                              makerow("3", "Japanese Government Postgraduate Scholarships - MEXT Scholarship Japan",),
+                                              makerow("4", "The Monbukagakusho Honors Scholarship for Privately-Financed International Students.",),
+                                              makerow("5", "Japanese Grant Aid for Human Resource Development Scholarship.",),
+
+                                            ],
+                                          )
+                                        ]
+                                    ),
+                                  )
+                              ),
+                            )
+                        ),
+                      )
+                  );
+                }),
+              )
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow(british, university){
+    return TableRow(
+        children: [
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+        ]
     );
   }
 }

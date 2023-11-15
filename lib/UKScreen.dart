@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class UK extends StatefulWidget {
@@ -230,6 +228,13 @@ class UKDocuments extends StatefulWidget {
 }
 
 class _UKDocumentsState extends State<UKDocuments> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -316,6 +321,13 @@ class UKExams extends StatefulWidget {
 }
 
 class _UKExamsState extends State<UKExams> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -404,6 +416,13 @@ class UKScholarships extends StatefulWidget {
 }
 
 class _UKScholarshipsState extends State<UKScholarships> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;

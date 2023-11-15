@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Australia extends StatefulWidget {
   const Australia({super.key});
@@ -149,6 +150,13 @@ class AustraliaScholarships extends StatefulWidget {
 }
 
 class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip() {
+    setState(() {
+      angle = (angle + pi) % (2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -157,6 +165,122 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
       appBar: AppBar(
         backgroundColor: Colors.brown,
       ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10,
+                  bottom: 10,
+                  right: 10,
+                  left: 10),
+              child: Text("International students who wish to study in Japan must take the EJU which is required for admission to undergraduate programs at Japanese universities. The EJU is held in June and November every year in Japan and other countries. The exam has four subjects:",
+                textAlign: TextAlign.justify,
+                style: TextStyle(fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20,
+                    horizontal: 20),
+                child: GestureDetector(
+                  onTap: _flip,
+                  child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                    if(val >= (pi/2)){
+                      isBack = false;
+                    }else{
+                      isBack = true;
+                    }
+                    return(
+                        Transform(
+                          alignment: Alignment.center,
+                          transform: Matrix4.identity()
+                            ..setEntry(3, 2, 0.001)
+                            ..rotateY(val),
+                          child: Container(
+                              height: hi/1.3,
+                              width: wi,
+                              child: isBack?
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    image:  DecorationImage(
+                                        image: AssetImage("assets/Colleges.png"),
+                                        fit: BoxFit.fill
+                                    )
+                                ),
+                              )
+                                  :Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.identity()..rotateY(pi),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        color: Colors.black
+                                    ),
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Column(
+                                          children: [
+                                            Container(
+                                              height: hi/10,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(top: 10),
+                                                child: Text(
+                                                  "Entrance Exams for Japan",
+                                                  style: TextStyle(
+                                                      fontSize: 30,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.white
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Table(
+                                              border: TableBorder.all(color: Colors.white),
+                                              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                              columnWidths: {
+                                                0: FixedColumnWidth(150),
+                                                1: FixedColumnWidth(200),
+                                              },
+                                              children: [
+                                                TableRow(
+                                                    children: [
+                                                      Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
+                                                      Center(child: Text("Exams", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                    ]
+                                                ),
+                                                makerow("1", "Japanese as a foreign language",),
+                                                makerow("2", "Science",),
+                                                makerow("3", "Japan and the world",),
+                                                makerow("4", "Mathematics",),
+                                              ],
+                                            )
+                                          ]
+                                      ),
+                                    )
+                                ),
+                              )
+                          ),
+                        )
+                    );
+                  }),
+                )
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  TableRow makerow( Num, Documents){
+    return TableRow(
+        children: [
+          Center(child: Text("$Num",style: TextStyle(fontSize: 25, color: Colors.black),),),
+          Center(child: Text("$Documents", style: TextStyle(fontSize: 25, color: Colors.black),
+            textAlign: TextAlign.left,),)
+        ]
     );
   }
 }

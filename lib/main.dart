@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         "/ChinaScreen":(context)=>China(),
         "/AustraliaScreen":(context)=>Australia(),
         "/NorwayScreen":(context)=>Norway(),
-        "/Ireland":(context)=>Ireland(),
+        "/IrelandScreen":(context)=>Ireland(),
         "/FranceScreen":(context)=>France(),
         "/NetherlandsScreen":(context)=>Netherlands(),
         "/Denmark":(context)=>Denmark(),
