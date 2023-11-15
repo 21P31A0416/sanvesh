@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:sanvesh/main.dart';
 
@@ -24,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     double wi = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
-        child: Image(image: AssetImage("assets/logo (2).png"),
+        child: Image(image: AssetImage("assets/pppp.png"),
           height: hi/2,
           width: wi/2,
         ),

@@ -138,6 +138,11 @@ class _GermanyCollegesState extends State<GermanyColleges> {
                                       fit: BoxFit.fill
                                   )
                               ),
+                              child: Column(
+                                children: [
+                                  Text("Tap To Flip", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),)
+                                ],
+                              ),
                             )
                                 :Transform(
                               alignment: Alignment.center,

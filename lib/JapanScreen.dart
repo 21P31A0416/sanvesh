@@ -13,7 +13,7 @@ class _JapanState extends State<Japan> {
     FF(image: "https://cdn.pixabay.com/photo/2017/09/01/13/56/university-2704306_1280.jpg", Text: "Colleges", text: "/JapanCollege"),
     FF(image: "https://media.istockphoto.com/id/1278630367/photo/grow-green-trees-on-money-in-energy-saving-light-bulbs-including-graduation-hats-with-ideas.webp?b=1&s=612x612&w=0&k=20&c=UTp8mUy55MyDTnvU31XndWI2l2Yjppz1QlY82EvOEjY=", Text: "Scholarships", text: "/JapanScholarships"),
     FF(image: "https://cdn.pixabay.com/photo/2016/01/16/14/56/buffer-1143485_640.jpg", Text: "Documents Required", text: "/JapanDocuments"),
-    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/JapanExams"),];
+    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Exams", text: "/JapanExams"),];
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -22,70 +22,70 @@ class _JapanState extends State<Japan> {
       appBar: AppBar(
         backgroundColor: Colors.green.shade900,
         title: Text("Japan",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 30,
-          color: Colors.white
-        ),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              color: Colors.white
+          ),
         ),
         centerTitle: true,
       ),
       body: ListView.builder(itemCount: l.length,
           itemBuilder: (context, i){
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15,
-          vertical: 15),
-          child:  InkWell(
-            onTap: (){
-              Navigator.push(context,
-              PageRouteBuilder(
-                transitionsBuilder: (context, animation, animationTime, child){
-                  return ScaleTransition(scale: animation,child: child,
-                  alignment: Alignment.center,);
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15,
+                  vertical: 15),
+              child:  InkWell(
+                onTap: (){
+                  Navigator.push(context,
+                    PageRouteBuilder(
+                        transitionsBuilder: (context, animation, animationTime, child){
+                          return ScaleTransition(scale: animation,child: child,
+                            alignment: Alignment.center,);
+                        },
+                        pageBuilder: (context, animation, animationTime){
+                          if (l[i].text == "/JapanCollege") {
+                            return JapanColleges();
+                          } else if (l[i].text == "/JapanDocuments") {
+                            return JapanDocuments();
+                          } else if (l[i].text == "/JapanScholarships") {
+                            return JapanScholarships();
+                          } else if (l[i].text == "/JapanExams") {
+                            return JapanExam();
+                          }
+                          return Container();
+                        }
+                    ),
+                  );
                 },
-                pageBuilder: (context, animation, animationTime){
-                  if (l[i].text == "/JapanCollege") {
-                    return JapanColleges();
-                  } else if (l[i].text == "/JapanDocuments") {
-                    return JapanDocuments();
-                  } else if (l[i].text == "/JapanScholarships") {
-                    return JapanScholarships();
-                  } else if (l[i].text == "/JapanExams") {
-                    return JapanExam();
-                  }
-                  return Container();
-                }
-              ),
-              );
-            },
-            child: Container(
-              height: hi/4,
-              width: wi,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.amber,
-                  image: DecorationImage(
-                      image: NetworkImage(l[i].image),
-                      fit: BoxFit.fill
-                  )
-              ),
-              child: Center(
-                child: ListTile(
-                    title: Center(
-                      child: Text(l[i].Text,
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
+                child: Container(
+                  height: hi/4,
+                  width: wi,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.amber,
+                      image: DecorationImage(
+                          image: NetworkImage(l[i].image),
+                          fit: BoxFit.fill
+                      )
+                  ),
+                  child: Center(
+                    child: ListTile(
+                      title: Center(
+                        child: Text(l[i].Text,
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white
+                          ),
                         ),
                       ),
                     ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        );
-      }),
+            );
+          }),
     );
   }
 }
@@ -162,8 +162,8 @@ class _JapanCollegesState extends State<JapanColleges> {
                               transform: Matrix4.identity()..rotateY(pi),
                               child: Container(
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: Colors.black
+                                    borderRadius: BorderRadius.circular(30),
+
                                   ),
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
@@ -174,40 +174,40 @@ class _JapanCollegesState extends State<JapanColleges> {
                                             child: Padding(
                                               padding: const EdgeInsets.only(top: 10),
                                               child: Text(
-                                                "Top Colleges in Japan",
+                                                "Top Universities in Japan",
                                                 style: TextStyle(
                                                     fontSize: 30,
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.white
+                                                    color: Colors.black
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Table(
-                                            border: TableBorder.all(color: Colors.white),
+                                            border: TableBorder.all(color: Colors.black),
                                             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                             columnWidths: {
-                                              0: FixedColumnWidth(150),
-                                              1: FixedColumnWidth(200),
+                                              0: FixedColumnWidth(70),
+                                              1: FixedColumnWidth(300),
                                             },
                                             children: [
                                               TableRow(
                                                   children: [
-                                                    Center(child: Text("QS Ranking 2024", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
-                                                    Center(child: Text("University", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                    Center(child: Text("Universities", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),),)
                                                   ]
                                               ),
-                                              makerow("28", "The University of Tokyo",),
-                                              makerow("46", "Kyoto University",),
-                                              makerow("80", "Osaka University",),
-                                              makerow("91", "Tokyo Institute of Technology (Tokyo Tech)	91",),
-                                              makerow("113", "Tohoku University",),
-                                              makerow("164", "Kyushu University",),
-                                              makerow("176", "Nagoya University",),
-                                              makerow("196", "Hokkaido University",),
-                                              makerow("199", "Waseda University",),
-                                              makerow("214", "Kyushu University"),
-                                              makerow("355", "Nagoya University")
+                                              makerow("1", "The University of Tokyo",),
+                                              makerow("2", "Kyoto University",),
+                                              makerow("3", "Osaka University",),
+                                              makerow("4", "Tokyo Institute of Technology (Tokyo Tech)	91",),
+                                              makerow("5", "Tohoku University",),
+                                              makerow("6", "Kyushu University",),
+                                              makerow("7", "Nagoya University",),
+                                              makerow("8", "Hokkaido University",),
+                                              makerow("9", "Waseda University",),
+                                              makerow("10", "Kyushu University"),
+                                              makerow("11", "Nagoya University")
                                             ],
                                           )
                                         ]
@@ -229,8 +229,8 @@ class _JapanCollegesState extends State<JapanColleges> {
   TableRow makerow(british, university){
     return TableRow(
         children: [
-          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
-          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.black),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.black),),)
         ]
     );
   }
@@ -298,7 +298,7 @@ class _JapanDocumentsState extends State<JapanDocuments> {
                               child: Container(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
-                                      color: Colors.black
+                                      color: Colors.white
                                   ),
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
@@ -309,36 +309,36 @@ class _JapanDocumentsState extends State<JapanDocuments> {
                                             child: Padding(
                                               padding: const EdgeInsets.only(top: 10),
                                               child: Text(
-                                                "Documents Required to study in Japan",
+                                                "Required Documents",
                                                 style: TextStyle(
-                                                    fontSize: 30,
+                                                    fontSize: 25,
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.white
+                                                    color: Colors.black
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Table(
-                                            border: TableBorder.all(color: Colors.white),
+                                            border: TableBorder.all(color: Colors.black),
                                             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                             columnWidths: {
-                                              0: FixedColumnWidth(50),
+                                              0: FixedColumnWidth(70),
                                               1: FixedColumnWidth(300),
                                             },
                                             children: [
                                               TableRow(
                                                   children: [
-                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
-                                                    Center(child: Text("Documents", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                    Center(child: Text("Documents", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),),)
                                                   ]
                                               ),
                                               makerow("1", "Completed student visa application form",),
                                               makerow("2", "Valid passport",),
                                               makerow("3", "Passport-size photos",),
-                                              makerow("4", "Letter of sponsorship.",),
+                                              makerow("4", "Letter of sponsorship",),
                                               makerow("5", "Letter of admission from an educational institution in Japan with details of the study program the student will be studying and its duration.",),
-                                              makerow("6", "Proof of academic qualifications.",),
-                                              makerow("7", "Proof of having enough funds for studies.",),
+                                              makerow("6", "Proof of academic qualifications",),
+                                              makerow("7", "Proof of having enough funds for studies",),
                                               makerow("8", "A letter of motivation from the student with a reason for travelling to Japan.",),
                                             ],
                                           )
@@ -361,8 +361,8 @@ class _JapanDocumentsState extends State<JapanDocuments> {
   TableRow makerow(british, university){
     return TableRow(
         children: [
-          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
-          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.black),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.black),),)
         ]
     );
   }
@@ -396,18 +396,6 @@ class _JapanExamState extends State<JapanExam> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10,
-              bottom: 10,
-              right: 10,
-              left: 10),
-              child: Text("International students who wish to study in Japan must take the EJU which is required for admission to undergraduate programs at Japanese universities. The EJU is held in June and November every year in Japan and other countries. The exam has four subjects:",
-              textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black),
-              ),
-            ),
             Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20,
                     horizontal: 20),
@@ -444,7 +432,7 @@ class _JapanExamState extends State<JapanExam> {
                                 child: Container(
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(30),
-                                        color: Colors.black
+                                        color: Colors.white
                                     ),
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
@@ -459,29 +447,29 @@ class _JapanExamState extends State<JapanExam> {
                                                   style: TextStyle(
                                                       fontSize: 30,
                                                       fontWeight: FontWeight.bold,
-                                                      color: Colors.white
+                                                      color: Colors.black
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Table(
-                                              border: TableBorder.all(color: Colors.white),
+                                              border: TableBorder.all(color: Colors.black),
                                               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                               columnWidths: {
-                                                0: FixedColumnWidth(150),
-                                                1: FixedColumnWidth(200),
+                                                0: FixedColumnWidth(70),
+                                                1: FixedColumnWidth(300),
                                               },
                                               children: [
                                                 TableRow(
                                                     children: [
-                                                      Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
-                                                      Center(child: Text("Exams", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                      Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                      Center(child: Text("Exams", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),),)
                                                     ]
                                                 ),
-                                                makerow("1", "Japanese as a foreign language",),
-                                                makerow("2", "Science",),
-                                                makerow("3", "Japan and the world",),
-                                                makerow("4", "Mathematics",),
+                                                makerow("1", "IELTS",),
+                                                makerow("2", "TOFEL",),
+                                                makerow("3", "GRE",),
+                                                makerow("4", "GMAT",),
                                               ],
                                             )
                                           ]
@@ -503,8 +491,8 @@ class _JapanExamState extends State<JapanExam> {
   TableRow makerow(british, university){
     return TableRow(
         children: [
-          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
-          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.black),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.black),),)
         ]
     );
   }
@@ -573,7 +561,7 @@ class _JapanScholarshipsState extends State<JapanScholarships> {
                               child: Container(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(30),
-                                      color: Colors.black
+                                      color: Colors.white
                                   ),
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
@@ -588,23 +576,23 @@ class _JapanScholarshipsState extends State<JapanScholarships> {
                                                 style: TextStyle(
                                                     fontSize: 30,
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.white
+                                                    color: Colors.black
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Table(
-                                            border: TableBorder.all(color: Colors.white),
+                                            border: TableBorder.all(color: Colors.black),
                                             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                             columnWidths: {
-                                              0: FixedColumnWidth(50),
+                                              0: FixedColumnWidth(70),
                                               1: FixedColumnWidth(300),
                                             },
                                             children: [
                                               TableRow(
                                                   children: [
-                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
-                                                    Center(child: Text("Scholarships", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                    Center(child: Text("Scholarships", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),),)
                                                   ]
                                               ),
                                               makerow("1", "Asian Development Bank-Japan Scholarship Programme.",),
@@ -633,8 +621,8 @@ class _JapanScholarshipsState extends State<JapanScholarships> {
   TableRow makerow(british, university){
     return TableRow(
         children: [
-          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.white),),),
-          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.white),),)
+          Center(child: Text("$british", style: TextStyle(fontSize: 20, color: Colors.black),),),
+          Center(child: Text("$university", style: TextStyle(fontSize: 20, color: Colors.black),),)
         ]
     );
   }

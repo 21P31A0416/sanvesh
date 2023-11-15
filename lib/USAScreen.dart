@@ -229,7 +229,7 @@ class _USADocumentsState extends State<USADocuments> {
         .size
         .height;
     return Scaffold(
-      backgroundColor: Colors.grey, appBar: AppBar(),
+      backgroundColor: Colors.white, appBar: AppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
