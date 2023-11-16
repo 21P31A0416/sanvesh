@@ -14,7 +14,7 @@ class _AustraliaState extends State<Australia> {
     FF(image: "https://cdn.pixabay.com/photo/2017/09/01/13/56/university-2704306_1280.jpg", Text: "Colleges", text: "/AustraliaColleges"),
     FF(image: "https://media.istockphoto.com/id/1278630367/photo/grow-green-trees-on-money-in-energy-saving-light-bulbs-including-graduation-hats-with-ideas.webp?b=1&s=612x612&w=0&k=20&c=UTp8mUy55MyDTnvU31XndWI2l2Yjppz1QlY82EvOEjY=", Text: "Scholarships", text: "/AustraliaScholarships"),
     FF(image: "https://cdn.pixabay.com/photo/2016/01/16/14/56/buffer-1143485_640.jpg", Text: "Documents Required", text: "/AustraliaDocuments"),
-    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Entrance Exams", text: "/AustraliaExam"),];
+    FF(image: "https://cdn.pixabay.com/photo/2018/09/04/10/06/man-3653346_640.jpg", Text: "Exams", text: "/AustraliaExam"),];
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -90,6 +90,13 @@ class AustraliaColleges extends StatefulWidget {
 }
 
 class _AustraliaCollegesState extends State<AustraliaColleges> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -98,6 +105,97 @@ class _AustraliaCollegesState extends State<AustraliaColleges> {
       appBar: AppBar(
         backgroundColor: Colors.purple,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,
+                  horizontal: 20),
+              child: GestureDetector(
+                onTap: _flip,
+                child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                  if(val >= (pi/2)){
+                    isBack = false;
+                  }else{
+                    isBack = true;
+                  }
+                  return(
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(val),
+                        child: Container(
+                            height: hi/1.3,
+                            width: wi,
+                            child: isBack?
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  image:  DecorationImage(
+                                      image: AssetImage("assets/Colleges.png"),
+                                      fit: BoxFit.fill
+                                  )
+                              ),
+                            )
+                                :Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.identity()..rotateY(pi),
+                                child:Container(
+                                    child: Column(
+                                      children: [Text("Top Colleges In Australia",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 20),
+                                          child: Table(
+                                            border: TableBorder.all(color: Colors.black),
+                                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                            columnWidths: {
+                                              0: FixedColumnWidth(70),
+                                              1: FixedColumnWidth(250),
+                                            },
+                                            children: [
+                                              TableRow(
+                                                  children: [
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                    Center(child: Text("Name of the Colleges", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),)
+                                                  ]
+                                              ),
+                                              makerow( "1", "The Australian National University"),
+                                              makerow( "2", "The University of Melbourne"),
+                                              makerow( "3", "The University of Sydney"),
+                                              makerow( "4", "The University of New South Wales"),
+                                              makerow( "5", "The University of Queensland	"),
+                                              makerow( "6", "Monash University"),
+                                              makerow( "7", "The University of Western Australia"),
+                                              makerow( "8", "The University of Adelaide"),
+                                              makerow( "9", "University of Technology Sydney"),
+                                              makerow("10","University of Wollongong")
+
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                )
+                            )
+
+                        ),
+                      )
+                  );
+                }),
+              )
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow( Num, Documents){
+    return TableRow(
+        children: [
+          Center(child: Text("$Num",style: TextStyle(fontSize: 18, color: Colors.black),textAlign: TextAlign.left,),),
+          Center(child: Text("$Documents", style: TextStyle(fontSize: 18, color: Colors.black),
+            textAlign: TextAlign.left,),)
+        ]
     );
   }
 }
@@ -110,6 +208,13 @@ class AustraliaDocuments extends StatefulWidget {
 }
 
 class _AustraliaDocumentsState extends State<AustraliaDocuments> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -118,6 +223,94 @@ class _AustraliaDocumentsState extends State<AustraliaDocuments> {
       appBar: AppBar(
         backgroundColor: Colors.black,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,
+                  horizontal: 20),
+              child: GestureDetector(
+                onTap: _flip,
+                child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                  if(val >= (pi/2)){
+                    isBack = false;
+                  }else{
+                    isBack = true;
+                  }
+                  return(
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(val),
+                        child: Container(
+                            height: hi/1.3,
+                            width: wi,
+                            child: isBack?
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  image:  DecorationImage(
+                                      image: AssetImage("assets/Colleges.png"),
+                                      fit: BoxFit.fill
+                                  )
+                              ),
+                            )
+                                :Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.identity()..rotateY(pi),
+                                child:Container(
+                                    child: Column(
+                                      children: [Text("Documents Required",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 20),
+                                          child: Table(
+                                            border: TableBorder.all(color: Colors.black),
+                                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                            columnWidths: {
+                                              0: FixedColumnWidth(70),
+                                              1: FixedColumnWidth(250),
+                                            },
+                                            children: [
+                                              TableRow(
+                                                  children: [
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                    Center(child: Text("Documents", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
+                                                  ]
+                                              ),
+                                              makerow( "1", "academic transcripts (if you do not yet have your exam certificates) and/or exam/qualification certificates"),
+                                              makerow( "2", "English language test results"),
+                                              makerow( "3", "a copy of your passport or another valid identity document"),
+                                              makerow( "4", "proof you have the finances to fund your studies"),
+                                              makerow( "5", "CV/resume"),
+                                              makerow("6","Statement of Purpose (SOP)"),
+                                              makerow("7","Letter of Recommendation (LOR)"),
+                                              makerow("8","Project description or portfolio (if applicable)")
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                )
+                            )
+
+                        ),
+                      )
+                  );
+                }),
+              )
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow( Num, Documents){
+    return TableRow(
+        children: [
+          Center(child: Text("$Num",style: TextStyle(fontSize: 18, color: Colors.black),),),
+          Center(child: Text("$Documents", style: TextStyle(fontSize: 18, color: Colors.black),
+            textAlign: TextAlign.left,),)
+        ]
     );
   }
 }
@@ -130,6 +323,13 @@ class AustraliaExam extends StatefulWidget {
 }
 
 class _AustraliaExamState extends State<AustraliaExam> {
+  bool isBack = true;
+  double angle = 0;
+  void _flip(){
+    setState(() {
+      angle = (angle + pi)%(2 * pi);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double hi = MediaQuery.of(context).size.height;
@@ -138,6 +338,96 @@ class _AustraliaExamState extends State<AustraliaExam> {
       appBar: AppBar(
         backgroundColor: Colors.teal,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20,
+                  horizontal: 20),
+              child: GestureDetector(
+                onTap: _flip,
+                child: TweenAnimationBuilder(tween: Tween<double>(begin: 0,end: angle), duration: Duration(seconds: 1), builder: (BuildContext context, double val, __){
+                  if(val >= (pi/2)){
+                    isBack = false;
+                  }else{
+                    isBack = true;
+                  }
+                  return(
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(val),
+                        child: Container(
+                            height: hi/1.3,
+                            width: wi,
+                            child: isBack?
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  image:  DecorationImage(
+                                      image: AssetImage("assets/Colleges.png"),
+                                      fit: BoxFit.fill
+                                  )
+                              ),
+                            )
+                                :Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.identity()..rotateY(pi),
+                                child:Container(
+                                    child: Column(
+                                      children: [Text("Exams",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 20),
+                                          child: Table(
+                                            border: TableBorder.all(color: Colors.black),
+                                            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                                            columnWidths: {
+                                              0: FixedColumnWidth(70),
+                                              1: FixedColumnWidth(250),
+                                            },
+                                            children: [
+                                              TableRow(
+                                                  children: [
+                                                    Center(child: Text("S.no", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                    Center(child: Text("Name of the Exams", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),),)
+                                                  ]
+                                              ),
+                                              makerow( "1", "IELTS"),
+                                              makerow( "2", "PTE"),
+                                              makerow( "3", "TOEFL"),
+                                              makerow( "4", "CAE"),
+                                              makerow( "5", "UMAT"),
+                                              makerow( "6", "ISAT"),
+                                              makerow( "7", "SAT"),
+                                              makerow( "8", "MCAT"),
+                                              makerow( "9", "GMAT")
+
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                )
+                            )
+
+                        ),
+                      )
+                  );
+                }),
+              )
+          )
+        ],
+      ),
+    );
+  }
+  TableRow makerow( Num, Documents){
+    return TableRow(
+        children: [
+          Center(child: Text("$Num",style: TextStyle(fontSize: 18, color: Colors.black),),),
+          Center(child: Text("$Documents", style: TextStyle(fontSize: 18, color: Colors.black),
+            textAlign: TextAlign.left,),)
+        ]
     );
   }
 }
@@ -179,7 +469,7 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
                 textAlign: TextAlign.justify,
                 style: TextStyle(fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                    color: Colors.white),
               ),
             ),
             Padding(
@@ -218,7 +508,7 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
                                 child: Container(
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(30),
-                                        color: Colors.black
+                                        color: Colors.white
                                     ),
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
@@ -227,35 +517,35 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
                                             Container(
                                               height: hi/10,
                                               child: Padding(
-                                                padding: const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(top: 10),
                                                 child: Text(
-                                                  "Entrance Exams for Japan",
+                                                  "Schlorships",
                                                   style: TextStyle(
                                                       fontSize: 30,
                                                       fontWeight: FontWeight.bold,
-                                                      color: Colors.white
+                                                      color: Colors.black
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Table(
-                                              border: TableBorder.all(color: Colors.white),
+                                              border: TableBorder.all(color: Colors.black),
                                               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                                               columnWidths: {
-                                                0: FixedColumnWidth(150),
-                                                1: FixedColumnWidth(200),
+                                                0: FixedColumnWidth(50),
+                                                1: FixedColumnWidth(300),
                                               },
                                               children: [
                                                 TableRow(
                                                     children: [
-                                                      Center(child: Text("S.no", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),),),
-                                                      Center(child: Text("Scholarshpis", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.white),),)
+                                                      Center(child: Text("S.no", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),),),
+                                                      Center(child: Text("Schlorships", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),)
                                                     ]
                                                 ),
-                                                makerow("1", "Japanese as a foreign language",),
-                                                makerow("2", "Science",),
-                                                makerow("3", "Japan and the world",),
-                                                makerow("4", "Mathematics",),
+                                                makerow("1", "Sponsored by the DFAT (Department of Foreign Affairs)"),
+                                                makerow("2", "ACIAR (Australian Centre for International Agricultural Research) along with the Department of Education, it offers UG/PG scholarships",),
+                                                makerow("3", "TAFE (Technical and Further Education) institutions are eligible"),
+                                                makerow("4", "Australian National University (Anu) Chancellor’s International Scholarship"),
                                               ],
                                             )
                                           ]
@@ -284,4 +574,3 @@ class _AustraliaScholarshipsState extends State<AustraliaScholarships> {
     );
   }
 }
-

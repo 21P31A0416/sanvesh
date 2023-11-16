@@ -162,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20,
-            right: 20),
+                right: 20),
             child: CarouselSlider(items: l.map((i){
               return Container(
                 height: hi/4,
