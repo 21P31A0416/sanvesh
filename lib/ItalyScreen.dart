@@ -37,31 +37,54 @@ class _ItalyScreenState extends State<ItalyScreen> {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15,
                   vertical: 15),
-              child: Container(
-                height: hi/4,
-                width: wi,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.amber,
-                    image: DecorationImage(
-                        image: NetworkImage(l[i].image),
-                        fit: BoxFit.fill
-                    )
+              child: InkWell(onTap: (){
+              Navigator.push(context,
+                PageRouteBuilder(
+                    transitionsBuilder: (context, animation, animationTime, child){
+                      return ScaleTransition(scale: animation,child: child,
+                        alignment: Alignment.center,);
+                    },
+                    pageBuilder: (context, animation, animationTime){
+                      if (l[i].text == "/ItalyColleges") {
+                        return ItalyColleges();
+                      } else if (l[i].text == "/ItalyDocuments") {
+                        return ItalyDocuments();
+                      } else if (l[i].text == "/ItalyScholarships") {
+                        return ItalyScholarships();
+                      } else if (l[i].text == "/ItalyExams") {
+                        return ItalyExams();
+                      }
+                      return Container();
+                    }
                 ),
-                child: Center(
-                  child: ListTile(
-                      title: TextButton(
-                        onPressed: (){
-                          Navigator.pushNamed(context, l[i].text);
-                        },
-                        child: Text(l[i].Text,
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white
-                          ),
-                        ),
+              );
+            },
+                child: Container(
+                  height: hi/4,
+                  width: wi,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.amber,
+                      image: DecorationImage(
+                          image: NetworkImage(l[i].image),
+                          fit: BoxFit.fill
                       )
+                  ),
+                  child: Center(
+                    child: ListTile(
+                        title: TextButton(
+                          onPressed: (){
+                            Navigator.pushNamed(context, l[i].text);
+                          },
+                          child: Text(l[i].Text,
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white
+                            ),
+                          ),
+                        )
+                    ),
                   ),
                 ),
               ),
@@ -460,9 +483,6 @@ class _ItalyScholarshipsState extends State<ItalyScholarships> {
                           makerow( "8", "The Italy Government Scholarships"),
                           makerow( "9", "PhD Scholarships At CIBS an Italy"),
                           makerow( "10", "Cattolica University Scholarship"),
-
-
-
                         ],
                       ),
                     ),

@@ -125,21 +125,21 @@ class _HomeScreenState extends State<HomeScreen> {
     "https://cdn.pixabay.com/photo/2017/12/22/08/01/school-supplies-3033204_640.jpg",
     "https://cdn.pixabay.com/photo/2016/11/08/05/20/sunset-1807524_1280.jpg"];
   int o = 0;
-  var k = [SS(image: "https://media.istockphoto.com/id/682561084/photo/tokyo.webp?b=1&s=612x612&w=0&k=20&c=zMxKVjipUO5yc7f2klow0gdzVfjDn27mTwu7s0AcL9w=", Text: "Japan", text: "/JapanScreen"),
-    SS(image: "https://media.istockphoto.com/id/1089200736/photo/the-empire-state.webp?b=1&s=612x612&w=0&k=20&c=_Cb7u7FqSGKKXKKfoNwV_HDcULiTsqBhg93pixQgFpw=", Text: "USA", text: "/USAScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2016/11/21/16/36/cologne-cathedral-1846338_640.jpg", Text: "Germany", text: "/GermanyScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2014/11/13/23/34/palace-530055_640.jpg", Text: "UK", text: "/UKScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2019/03/31/14/31/houses-4093227_640.jpg", Text: "Italy", text: "/ItalyScreen"),
-    SS(image: "https://media.istockphoto.com/id/177429276/photo/lake-reflecting-the-singapore-city-skyline-at-night.webp?b=1&s=612x612&w=0&k=20&c=G5Gm9OdPOluUA8_ldMxBFd97GPHP3dXCo-RdPUj-YDY=", Text: "Singapore", text: "/SingaporeScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2017/05/09/03/47/buildings-2297210_640.jpg", Text: "Canada", text: "/CanadaScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2022/11/16/16/56/city-7596379_640.jpg", Text: "New Zealand", text: "/NewZealandScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2019/12/14/12/08/night-4694750_640.jpg", Text: "China", text: "/ChinaScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2014/06/06/09/36/sydney-opera-house-363244_640.jpg", Text: "Australia", text: "/AustraliaScreen"),
-    SS(image: "https://media.istockphoto.com/id/1446457083/photo/old-city-bergen.webp?b=1&s=612x612&w=0&k=20&c=4dlrs7K-kzdP80duSVkH8ocdIpvQAUgNMKs3MSnVMnM=", Text: "Norway", text: "/NorwayScreen"),
-    SS(image: "https://media.istockphoto.com/id/116149884/photo/belfast-eye.webp?b=1&s=612x612&w=0&k=20&c=KtdAVNvBnfN2PT2YqnBwjM9sKJBDKzbMuz9ft_ubbLw=", Text: "Ireland", text: "/IrelandScreen"),
-    SS(image: "https://media.istockphoto.com/id/940054914/photo/aerial-view-of-place-massena-in-nice-france.webp?b=1&s=612x612&w=0&k=20&c=yPE92lXXHFV9MaLMOQvzQe2zfXH8bgdh3A-r-KvjL4Q=", Text: "France", text: "/FranceScreen"),
-    SS(image: "https://media.istockphoto.com/id/1143539287/photo/channel-in-amsterdam-netherlands-houses-river-amstel.webp?b=1&s=612x612&w=0&k=20&c=fKyXbPIwSmDZjRYKNMtbf2eK3KGcEr2tYKg0NQRB6vY=", Text: "Netherlands", text: "/NetherlandsScreen"),
-    SS(image: "https://media.istockphoto.com/id/587892190/photo/copenhagen-denmark-at-nyhavn-canal.webp?b=1&s=612x612&w=0&k=20&c=zH21LpWh08U14RD-IaY4-pEa7Fuzap6_i9SqNt0LE0U=", Text: "Denmark", text: "/Denmark")];
+  var k = [SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/15/japan-162328_1280.png", Text: "Japan", text: "/JapanScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2012/04/10/16/22/united-26177_1280.png", Text: "USA", text: "/USAScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2012/04/12/23/52/germany-31017_1280.png", Text: "Germany", text: "/GermanyScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2017/10/31/23/52/england-2906827_640.png", Text: "UK", text: "/UKScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/15/italy-162326_640.png", Text: "Italy", text: "/ItalyScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2012/04/10/22/58/singapore-26793_1280.png", Text: "Singapore", text: "/SingaporeScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2012/04/10/23/27/canada-27003_640.png", Text: "Canada", text: "/CanadaScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/16/new-zealand-162373_1280.png", Text: "New Zealand", text: "/NewZealandScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2020/02/24/01/45/china-4875007_640.png", Text: "China", text: "/ChinaScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2013/07/12/18/42/australia-153732_640.png", Text: "Australia", text: "/AustraliaScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2012/04/11/15/17/norway-28453_1280.png", Text: "Norway", text: "/NorwayScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/15/ireland-162323_1280.png", Text: "Ireland", text: "/IrelandScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/15/france-162295_640.png", Text: "France", text: "/FranceScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/16/netherlands-162372_640.png", Text: "Netherlands", text: "/NetherlandsScreen"),
+    SS(image: "https://cdn.pixabay.com/photo/2020/02/26/02/34/denmark-4880481_1280.png", Text: "Denmark", text: "/Denmark")];
   double scaleFactor = 1;
   bool isVisible = true;
   @override
@@ -155,92 +155,526 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.purple,
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Container(
-            height: hi/20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20,
-                right: 20),
-            child: CarouselSlider(items: l.map((i){
-              return Container(
-                height: hi/4,
-                width: wi,
-                decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(i),
-                      fit: BoxFit.fill),
-                ),
-              );
-            }).toList(),
-                options: CarouselOptions(
-                  height: hi/4,
-                  viewportFraction: 2,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  enlargeCenterPage: true,
-
-                )
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              height: hi/20,
             ),
-          ),
-          Container(
-            height: hi/20,
-          ),
-          Expanded(
-            child: AnimationLimiter(
-              child: ListView.builder(
-                  itemCount: k.length,
-                  itemBuilder: (context, o){
-                    return AnimationConfiguration.staggeredList(
-                      position: o,
-                      duration: const Duration(milliseconds: 325),
-                      child: SlideAnimation(
-                        verticalOffset: 200.0,
-                        child: FadeInAnimation(
+            Padding(
+              padding: const EdgeInsets.only(left: 20,
+                  right: 20),
+              child: CarouselSlider(items: l.map((i){
+                return Container(
+                  height: hi/4,
+                  width: wi,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: NetworkImage(i),
+                        fit: BoxFit.fill),
+                  ),
+                );
+              }).toList(),
+                  options: CarouselOptions(
+                    height: hi/4,
+                    viewportFraction: 2,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    enlargeCenterPage: true,
+
+                  )
+              ),
+            ),
+            Container(
+              height: hi/20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+              bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[0].text);
+                    },
+                      child: SizedBox(
+                        height: hi/4,
+                        width: wi/2.5,
+                        child: Card(
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(bottom: 15,
-                                    right: 10,
-                                    left: 10),
+                                padding: const EdgeInsets.only(top: 5),
                                 child: Container(
-                                    height: hi/6,
-                                    width: wi,
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(k[o].image),
-                                            fit: BoxFit.fill),
-                                        borderRadius: BorderRadius.circular(10)
-                                    ),
-                                    child: Center(
-                                        child: Transform.scale(
-                                          scale: scaleFactor,
-                                          child: TextButton(
-                                            onPressed: (){
-                                              Navigator.pushNamed(context, k[o].text);
-                                            },
-                                            child: Text(k[o].Text,
-                                              style: TextStyle(
-                                                  fontSize: 25,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                    )
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                  height: hi/5,
+                                  width: wi/2.5,
+                                  child: Image.network(k[0].image, fit: BoxFit.fill,),
                                 ),
-                              )
+                              ),
+                              Text(k[0].Text)
                             ],
                           ),
-                        ),
+                          elevation: 10,
+                        )
                       ),
-                    );
-                  }),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[1].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[1].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[1].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+                  bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[2].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[2].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[2].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[3].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[3].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[3].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+                  bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[4].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[4].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[4].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[5].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[5].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[5].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+                  bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[6].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[6].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[6].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[7].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[7].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[7].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+                  bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[8].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[8].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[8].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[9].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[9].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[9].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+                  bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[10].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[10].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[10].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[11].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[11].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[11].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+                  bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[12].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[12].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[12].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[13].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[13].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[13].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10,
+                  bottom: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: InkWell(onTap: (){
+                      Navigator.pushNamed(context, k[14].text);
+                    },
+                      child: SizedBox(
+                          height: hi/4,
+                          width: wi/2.5,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5),
+                                  child: Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                                    height: hi/5,
+                                    width: wi/2.5,
+                                    child: Image.network(k[14].image, fit: BoxFit.fill,),
+                                  ),
+                                ),
+                                Text(k[14].Text)
+                              ],
+                            ),
+                            elevation: 10,
+                          )
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
 
     );
