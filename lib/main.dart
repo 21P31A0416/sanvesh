@@ -17,6 +17,7 @@ import 'NorwayScreen.dart';
 import 'IrelandScreen.dart';
 import 'NetherlandsScreen.dart';
 import 'Denmark.dart';
+import 'RussiaScreen.dart';
 void main(){
   runApp(MyApp());
 }
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/":(context)=>SplashScreen(),
         "/JapanScreen":(context)=>Japan(),
+        "/RussiaScreen":(context)=>RussiaScreen(),
         "/USAScreen":(context)=>USA(),
         "/GermanyScreen":(context)=>Germany(),
         "/UKScreen":(context)=>UK(),
@@ -105,6 +107,10 @@ class MyApp extends StatelessWidget {
         "/ItalyScholarships":(context)=>ItalyScholarships(),
         "/ItalyDocuments":(context)=>ItalyDocuments(),
         "/ItalyExams":(context)=>ItalyExams(),
+        "/RussiaColleges":(context)=>RussiaColleges(),
+        "/RussiaScholarships":(context)=>RussiaScholarships(),
+        "/RussiaDocuments":(context)=>RussiaDocuments(),
+        "/RussiaExams":(context)=>RussiaExams()
       },
       debugShowCheckedModeBanner: false,
     );
@@ -139,7 +145,8 @@ class _HomeScreenState extends State<HomeScreen> {
     SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/15/ireland-162323_1280.png", Text: "Ireland", text: "/IrelandScreen"),
     SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/15/france-162295_640.png", Text: "France", text: "/FranceScreen"),
     SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/16/netherlands-162372_640.png", Text: "Netherlands", text: "/NetherlandsScreen"),
-    SS(image: "https://cdn.pixabay.com/photo/2020/02/26/02/34/denmark-4880481_1280.png", Text: "Denmark", text: "/Denmark")];
+    SS(image: "https://cdn.pixabay.com/photo/2020/02/26/02/34/denmark-4880481_1280.png", Text: "Denmark", text: "/Denmark"),
+  SS(image: "https://cdn.pixabay.com/photo/2013/07/13/14/17/russia-162400_1280.png", Text: "Russia", text: "/RussiaScreen")];
   double scaleFactor = 1;
   bool isVisible = true;
   @override
